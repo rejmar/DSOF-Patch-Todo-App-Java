@@ -25,6 +25,12 @@ spec:
         - name: ldap
           image: ${DOCKER_ACCOUNT}/log4shell-server:latest
           imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8080
+            initialDelaySeconds: 20
+            timeoutSeconds: 20
           securityContext: 
             runAsNonRoot: true
             allowPrivilegeEscalation: false
