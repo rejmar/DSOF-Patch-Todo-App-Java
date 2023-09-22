@@ -38,6 +38,8 @@ spec:
               drop: 
               - ALL
               add: ['NET_BIND_SERVICE']
+            runAsUser: 100000
+            readOnlyRootFilesystem: true
 ---
 apiVersion: v1
 kind: Service
