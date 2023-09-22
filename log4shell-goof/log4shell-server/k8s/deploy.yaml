@@ -25,6 +25,8 @@ spec:
         - name: ldap
           image: ${DOCKER_ACCOUNT}/log4shell-server:latest
           imagePullPolicy: Always
+          securityContext: 
+            runAsNonRoot: true
 ---
 apiVersion: v1
 kind: Service
@@ -38,6 +40,9 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8000
+  containers:
+    securityContext: 
+      allowPrivilegeEscalation: false
 ---
 apiVersion: v1
 kind: Service
