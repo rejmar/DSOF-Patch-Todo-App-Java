@@ -29,7 +29,9 @@ spec:
             runAsNonRoot: true
             allowPrivilegeEscalation: false
             capabilities: 
-              drop: ALL
+              drop: 
+              - ALL
+              add: ['NET_BIND_SERVICE']
 ---
 apiVersion: v1
 kind: Service
