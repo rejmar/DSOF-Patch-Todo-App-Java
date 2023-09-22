@@ -10,7 +10,7 @@ COPY todolist-web-common todolist-web-common
 COPY todolist-web-struts todolist-web-struts
 RUN --mount=target=$HOME/.m2,type=cache mvn install
 
-FROM tomcat:jdk21-openjdk
+FROM tomcat:11.0.0-M10-jdk21-openjdk-slim
 
 RUN mkdir /tmp/extracted_files
 COPY web.xml /usr/local/tomcat/conf/web.xml
